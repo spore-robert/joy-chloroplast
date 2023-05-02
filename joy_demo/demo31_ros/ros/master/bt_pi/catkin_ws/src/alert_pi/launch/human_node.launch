@@ -1,0 +1,27 @@
+<launch>
+   <arg name="media_path" default="$(find alert_pi)/media/" />
+  <arg name="port" default="/dev/rfcomm0" />
+  <arg name="baud" default="9600" />
+
+  <node pkg="rosserial_python" type="serial_node.py" name="bt_serial_human"  output="screen">
+    <param name="port" value="$(arg port)" />
+    <param name="baud" value="$(arg baud)" />
+  </node>
+
+  <node pkg="rosserial_python" type="serial_node_tcp.py" name="esp8266_serial_human"  output="screen">
+    <param name="port" value="tcp" />
+    <param name="baud" value="$(arg baud)" />
+  </node>
+<!--
+  <node pkg="rosserial_python" type="serial_node_tcp2.py" name="esp8266_serial_human_11511"  output="screen">
+    <param name="port" value="tcp" />
+    <param name="baud" value="$(arg baud)" />
+    <param name="tcp_port" value="11511" />
+
+  </node>
+-->
+ 
+<node pkg="alert_pi" type="listener_demo_mp3.py" name="spore_alert_pi"  				output="screen">
+    <param name="media_file" value="$(arg media_path)" />
+  </node>
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+   <arg name="media_path" default="$(find alert_pi)/media/" />
+
+  <node pkg="alert_pi" type="listener_demo_mp3.py" name="alert_pi_listener"  				output="screen">
+    <param name="media_file" value="$(arg media_path)" />
+  </node>
+</launch>

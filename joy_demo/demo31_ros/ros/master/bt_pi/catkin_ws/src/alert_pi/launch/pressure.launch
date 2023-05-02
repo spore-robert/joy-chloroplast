@@ -1,0 +1,15 @@
+<launch>
+
+  <arg name="port" default="/dev/ttyACM0" />
+  <arg name="baud" default="9600" />
+  <arg name="media_path" default="$(find alert_pi)/media/" />
+
+  <node pkg="rosserial_python" type="serial_node.py" name="bt_serial_human"  output="screen">
+    <param name="port" value="$(arg port)" />
+    <param name="baud" value="$(arg baud)" />
+  </node>
+
+  <node pkg="alert_pi" type="listener_pressure_mp3.py" name="alert_pressure_listener"  				output="screen">
+    <param name="media_file" value="$(arg media_path)" />
+  </node>
+</launch>

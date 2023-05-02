@@ -1,0 +1,5 @@
+<launch>
+ 
+  <node pkg="alert_pi" type="spore_node.py" name="sporez"  output="screen">
+  </node>
+</launch>

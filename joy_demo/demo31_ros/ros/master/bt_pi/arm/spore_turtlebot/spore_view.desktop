@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Eclipse
+Type=Application
+Exec=bash -i -c  /home/sporev/spore_turtlebot/startup.sh
+Terminal=false
+Icon=/home/sporev/spore_turtlebot/icon/sporeT
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE
+Name[zh_TW]=spore_view
